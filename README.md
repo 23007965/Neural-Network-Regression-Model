@@ -132,7 +132,9 @@ print(f'Prediction: {prediction}')
 
 ### New Sample Data Prediction
 
-Include your sample input and output here
+<img width="932" height="146" alt="image" src="https://github.com/user-attachments/assets/8a27d3a6-7071-4e13-9d59-a6555651c4b4" />
+
+
 
 ## RESULT
 
