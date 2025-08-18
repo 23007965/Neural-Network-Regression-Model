@@ -120,7 +120,8 @@ print(f'Prediction: {prediction}')
 ```
 ## Dataset Information
 
-Include screenshot of the dataset
+<img width="549" height="685" alt="image" src="https://github.com/user-attachments/assets/8c0ca5b3-772b-4f23-89f3-b6a362e578c4" />
+
 
 ## OUTPUT
 
