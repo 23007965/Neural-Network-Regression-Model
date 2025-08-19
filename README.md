@@ -49,16 +49,36 @@ Evaluate the model with the testing data.
 class NeuralNet(nn.Module):
     def __init__(self):
         super().__init__()
-        #Include your code here
+        self.fc1=nn.Linear(1,8)
+    self.fc2=nn.Linear(8,10)
+    self.fc3=nn.Linear(10,1)
+    self.relu=nn.ReLU()
+    self.history={'loss':[]}
+
+  def forward(self,x):
+    x=self.relu(self.fc1(x)) # Apply relu after the first linear layer
+    x=self.relu(self.fc2(x)) # Apply relu after the second linear layer
+    x=self.fc3(x)
+    return x
 
 
 
-# Initialize the Model, Loss Function, and Optimizer
+Parthiban = NeuralNet()
+criterion=nn.MSELoss()
+optimizer=torch.optim.RMSprop(Parthiban.parameters(),lr=0.001)
 
 
 
 def train_model(ai_brain, X_train, y_train, criterion, optimizer, epochs=2000):
-    #Include your code here
+    for epoch in range(epochs):
+    optimizer.zero_grad()
+    loss=criterion(Parthiban(x_train),y_train)
+    loss.backward()
+    optimizer.step()
+
+    Parthiban.history['loss'].append(loss.item())
+    if epoch % 200 ==0:
+      print(f"Epoch [{epoch}/{epochs}], loss: {loss.item():.6f}")
 
 
 
