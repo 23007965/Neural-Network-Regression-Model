@@ -46,76 +46,21 @@ Evaluate the model with the testing data.
 ### Name: PARTHIBAN
 ### Register Number: 212223230145
 ```python
-import pandas as pd
-data=pd.read_csv("/content/height_weight.csv")
-data.columns = data.columns.str.strip()
-data
-
-x=data[['height']]
-y=data[['weight']]
-
-from sklearn.model_selection import train_test_split
-x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.33,random_state=33)
-
-from sklearn.preprocessing import MinMaxScaler
-scaler=MinMaxScaler()
-x_train=scaler.fit_transform(x_train)
-x_test=scaler.transform(x_test)
-
-import torch
-
-x_train_tensor=torch.tensor(x_train,dtype=torch.float32)
-y_train_tensor=torch.tensor(y_train.values,dtype=torch.float32).view(-1,1)
-x_test_tensor=torch.tensor(x_test,dtype=torch.float32)
-y_test_tensor=torch.tensor(y_test.values,dtype=torch.float32).view(-1,1)
-
-import torch.nn as nn
-
 class NeuralNet(nn.Module):
-  def __init__(self):
-    super().__init__()
-    self.fc1=nn.Linear(1,8)
-    self.fc2=nn.Linear(8,10)
-    self.fc3=nn.Linear(10,1)
-    self.relu=nn.ReLU()
-    self.history={'loss':[]}
+    def __init__(self):
+        super().__init__()
+        #Include your code here
 
-  def forward(self,x):
-    x=self.relu(self.fc1(x)) # Apply relu after the first linear layer
-    x=self.relu(self.fc2(x)) # Apply relu after the second linear layer
-    x=self.fc3(x)
-    return x
 
-Parthiban = NeuralNet()
-criterion=nn.MSELoss()
-optimizer=torch.optim.RMSprop(Parthiban.parameters(),lr=0.001)
 
-def train_model(Parthiban,x_train,y_train,criterion,optimizer,epochs=2000):
-  for epoch in range(epochs):
-    optimizer.zero_grad()
-    loss=criterion(Parthiban(x_train),y_train)
-    loss.backward()
-    optimizer.step()
+# Initialize the Model, Loss Function, and Optimizer
 
-    Parthiban.history['loss'].append(loss.item())
-    if epoch % 200 ==0:
-      print(f"Epoch [{epoch}/{epochs}], loss: {loss.item():.6f}")
 
-train_model(Parthiban,x_train_tensor,y_train_tensor,criterion,optimizer)
 
-with torch.no_grad():
-  test_loss=criterion(Parthiban(x_test_tensor),y_test_tensor)
-  print(f"Test Loss: {test_loss.item():.6f}")
+def train_model(ai_brain, X_train, y_train, criterion, optimizer, epochs=2000):
+    #Include your code here
 
-import matplotlib.pyplot as plt
-plt.plot(Parthiban.history['loss'])
-plt.title('Loss during Training')
-plt.xlabel('Epochs')
-plt.ylabel('Loss')
 
-X_n1_1 = torch.tensor([[105]], dtype=torch.float32)
-prediction = Parthiban(torch.tensor(scaler.transform(X_n1_1), dtype=torch.float32)).item()
-print(f'Prediction: {prediction}')
 
 ```
 ## Dataset Information
