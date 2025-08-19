@@ -56,8 +56,8 @@ class NeuralNet(nn.Module):
     self.history={'loss':[]}
 
   def forward(self,x):
-    x=self.relu(self.fc1(x)) # Apply relu after the first linear layer
-    x=self.relu(self.fc2(x)) # Apply relu after the second linear layer
+    x=self.relu(self.fc1(x)) 
+    x=self.relu(self.fc2(x)) 
     x=self.fc3(x)
     return x
 
@@ -97,7 +97,7 @@ def train_model(ai_brain, X_train, y_train, criterion, optimizer, epochs=2000):
 
 ### New Sample Data Prediction
 
-<img width="932" height="146" alt="image" src="https://github.com/user-attachments/assets/8a27d3a6-7071-4e13-9d59-a6555651c4b4" />
+
 
 
 
