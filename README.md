@@ -10,7 +10,8 @@ Explain the problem statement
 
 ## Neural Network Model
 
-Include the neural network model diagram.
+<img width="954" height="633" alt="image" src="https://github.com/user-attachments/assets/69eca247-4a7f-49b7-8cf7-3c1d21a57b76" />
+
 
 ## DESIGN STEPS
 
@@ -98,6 +99,7 @@ def train_model(ai_brain, X_train, y_train, criterion, optimizer, epochs=2000):
 ### New Sample Data Prediction
 
 
+<img width="1008" height="125" alt="image" src="https://github.com/user-attachments/assets/3e75fc91-b112-4c36-9a52-694340c4d3cf" />
 
 
 
